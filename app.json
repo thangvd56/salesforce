@@ -1,0 +1,16 @@
+{
+  "name": "Force.com API Sample",
+  "keywords": ["heroku", "salesforce", "force.com"],
+  "env": {
+    "SALESFORCE_KEY": {
+      "description": "Your Salesforce Connected App Key"
+    },
+    "SALESFORCE_SECRET": {
+      "description": "Your Salesforce Connected App Secret"
+    },
+    "SECRET": {
+      "description": "A secret key for encryption",
+      "generator": "secret"
+    }
+  }
+}
