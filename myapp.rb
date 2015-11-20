@@ -42,8 +42,8 @@ class MyApp < Sinatra::Base
   end
 
   get '/account/:id' do
-    infor = client.query("select Id, Name from Account where Id = :id")
-    erb : account
+    @infors = client.query("select Id, Name from Account where Id = :id")
+    erb :account
   end
 
   get '/authenticate' do

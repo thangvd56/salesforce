@@ -10,10 +10,12 @@
 	<body>
 	<table class="table table-bordered">
 		<tr><th>ID</th><th>Account</th></tr>
+		<% @infors.each do |infor| %>
 		  <tr>
 		  	<td><%= infor.Id %></td>
 		    <td><%= infor.Name %></td> 
 		  </tr>
+		<% end %>
 	</table>
   </body>
 </html>
