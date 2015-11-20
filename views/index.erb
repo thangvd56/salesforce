@@ -43,11 +43,12 @@
 
 	</div>
 	<table class="table table-bordered">
-		<tr><th>Account</th><th>ID</th></tr>
+		<tr><th>ID</th><th>Account</th><th>Action</th></tr>
 		<% @accounts.each do |account| %>
 		  <tr>
-		     <td><%= account.Name %></td> 
-		     <td><%= account.Id %></td>
+		  	<td><%= account.Id %></td>
+		    <td><%= account.Name %></td> 
+		    <td><a href = "/account/<%= account.Id %>" /></td>
 		  </tr>
 		<% end %>
 	</table>
