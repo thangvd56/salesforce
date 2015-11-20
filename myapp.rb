@@ -41,6 +41,10 @@ class MyApp < Sinatra::Base
     erb :index
   end
 
+  get '/account/:id' do
+    infor = client.query("select Id, Name from Account where Id = :id")
+    erb : account
+  end
 
   get '/authenticate' do
     redirect "/auth/salesforce"
