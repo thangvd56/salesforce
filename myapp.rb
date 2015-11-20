@@ -2,6 +2,7 @@ require "sinatra/base"
 require 'force'
 require "omniauth"
 require "omniauth-salesforce"
+require "bootstrap"
 
 
 class MyApp < Sinatra::Base
