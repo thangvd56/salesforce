@@ -42,7 +42,7 @@ class MyApp < Sinatra::Base
   end
 
   get '/account/:id' do
-    @infors = client.query("select Id, Name from Account where Id = #{params[:id]}")
+    @infors = client.query("select Id, Name from Account")
     erb :account
   end
 
