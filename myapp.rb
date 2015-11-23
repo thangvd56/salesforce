@@ -47,16 +47,7 @@ class MyApp < Sinatra::Base
   end
 
   post '/register' do
-    @account = Account.new(
-        :Name => params[:username]
-      )
-
-    if @account.save
-      redirect "/"
-    else
-      redirect "/register"
-    end
-    erb :register
+    params[:username].reverse
   end
 
   get '/authenticate' do
