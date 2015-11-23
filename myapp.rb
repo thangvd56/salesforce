@@ -46,6 +46,13 @@ class MyApp < Sinatra::Base
     erb :account
   end
 
+  post '/register' do
+    Account acc = new Account()
+    acc.Name = '#{params[:username]}'
+    insert acc
+    erb :register
+  end
+
   get '/authenticate' do
     redirect "/auth/salesforce"
   end
