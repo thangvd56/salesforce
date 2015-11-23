@@ -47,9 +47,15 @@ class MyApp < Sinatra::Base
   end
 
   post '/register' do
-    Account acc = new Account()
-    acc.Name = '#{params[:username]}'
-    insert acc
+    @account = Account.new(
+        :Name => params[:username]
+      )
+
+    if @account.save
+      redirect "/"
+    else
+      redirect "/register"
+    end
     erb :register
   end
 
