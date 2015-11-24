@@ -2,7 +2,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
    
-        
+        <% @employees.each do |employee| %>
           <div class="panel panel-info">
             <div class="panel-heading">
               <h3 class="panel-title">@employee.Name</h3>
@@ -14,7 +14,7 @@
                   <table class="table table-user-information">
                     
                     <tbody>
-                      <% @employees.each do |employee| %>
+                      
                       <tr>
                         <td>Position:</td>
                         <td><%= employee.Position__c %></td>
@@ -29,11 +29,11 @@
                       </tr>
                    
                          
-                             <tr>
+                      <tr>
                         <td>Team</td>
                         <td><%= employee.Team__r.Name %></td>
                       </tr>
-                        <tr>
+                      <tr>
                         <td>Home Address</td>
                         <td><%= employee.Address__c %></td>
                       </tr>
@@ -42,12 +42,10 @@
                         <td><a href="#"><%= employee.email__c %></a></td>
                       </tr>
                       <tr>
-                        <td><%= Phone Number</td>
-                        <td><%= employee.Phone__c %>(Mobile)
-                        </td>
-                           
+                        <td>Phone Number</td>
+                        <td><%= employee.Phone__c %>(Mobile)</td>    
                       </tr>
-                     <% end %>
+                     
                     </tbody>
                     
                   </table>
@@ -65,7 +63,7 @@
                     </span>
                   </div>      
           </div>
-          
+          <% end %>
         </div>
       </div>
     </div>
