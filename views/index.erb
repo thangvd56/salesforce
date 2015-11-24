@@ -1,9 +1,12 @@
 	<table class="table table-bordered">
-		<tr><th>ID</th><th>Account</th><th>Action</th></tr>
+		<tr><th>ID</th><th>Account</th><th>Username</th><th>Email</th><th>No Member</th><th>Team</th><th>Action</th></tr>
 		<% @accounts.each do |account| %>
 		  <tr>
-		  	<td><%= account.Id %></td>
-		    <td><%= account.Name %></td> 
+		    <td><%= account.Name %></td>
+		    <td><%= account.username__c %></td>
+		    <td><%= account.email__c %></td>
+		    <td><%= account.teamnumber__c %></td>
+		    <td><%= account.Team__c %></td>
 		    <td><a href = "/account/<%= account.Id %>" />Details</td>
 		  </tr>
 		<% end %>

@@ -37,7 +37,7 @@ class MyApp < Sinatra::Base
 
   get '/' do
     logger.info "Visited home page"
-    @accounts= client.query("select Id, Name from Account")    
+    @accounts= client.query("select Name, username__c, email__c, teamnumber__c, Team__c from Employees")    
     erb :index
   end
 
