@@ -55,6 +55,10 @@ class MyApp < Sinatra::Base
     redirect '/'
   end
 
+  get '/details' do
+    erb :details
+  end
+
   get '/authenticate' do
     redirect "/auth/salesforce"
   end
