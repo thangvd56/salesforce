@@ -2,10 +2,10 @@
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
    
-   
+        <% @employees.each do |employee| %>
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title"><%= @employee.Name %></h3>
+              <h3 class="panel-title"><%= employee.Name %></h3>
             </div>
             <div class="panel-body">
               <div class="row">
@@ -15,33 +15,33 @@
                     <tbody>
                       <tr>
                         <td>Position:</td>
-                        <td><%= @employee.Position__c %></td>
+                        <td><%= employee.Position__c %></td>
                       </tr>
                       <tr>
                         <td>Hire date:</td>
-                        <td><%= @employee.Hiredate__c %></td>
+                        <td><%= employee.Hiredate__c %></td>
                       </tr>
                       <tr>
                         <td>Date of Birth</td>
-                        <td><%= @employee.birthday__c %></td>
+                        <td><%= employee.birthday__c %></td>
                       </tr>
                    
                          
                              <tr>
                         <td>Team</td>
-                        <td><%= @employee.Team__r.Name %></td>
+                        <td><%= employee.Team__r.Name %></td>
                       </tr>
                         <tr>
                         <td>Home Address</td>
-                        <td><%= @employee.Address__c %></td>
+                        <td><%= employee.Address__c %></td>
                       </tr>
                       <tr>
                         <td>Email</td>
-                        <td><a href="#"><%= @employee.email__c %></a></td>
+                        <td><a href="#"><%= employee.email__c %></a></td>
                       </tr>
                       <tr>
                         <td><%= Phone Number</td>
-                        <td><%= @employee.Phone__c %>(Mobile)
+                        <td><%= employee.Phone__c %>(Mobile)
                         </td>
                            
                       </tr>
@@ -62,6 +62,7 @@
                     </span>
                   </div>      
           </div>
+          <% end %>
         </div>
       </div>
     </div>

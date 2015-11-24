@@ -56,7 +56,7 @@ class MyApp < Sinatra::Base
   end
 
   get '/details/:id' do
-    @employee = client.query("select Name, Position__c, Hiredate__c, birthday__c, Team__r.Name, Address__c, email__c, Phone__c from Employees__c where Id = '#{params[:id]}'")
+    @employees = client.query("select Name, Position__c, Hiredate__c, birthday__c, Team__r.Name, Address__c, email__c, Phone__c from Employees__c where Id = '#{params[:id]}'")
     erb :details
   end
 
