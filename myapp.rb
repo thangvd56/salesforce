@@ -37,12 +37,12 @@ class MyApp < Sinatra::Base
 
   get '/' do
     logger.info "Visited home page"
-    @accounts= client.query("select Name, username__c, email__c, teamnumber__c, Team__c from Employees")    
+    @accounts= client.query("select Id, Name, username__c, email__c, teamnumber__c, Team__c from Employees__c")    
     erb :index
   end
 
   get '/account/:id' do
-    @infors = client.query("select Id, Name from Account where Id = '#{params[:id]}'")
+    @infors = client.query("select Id, Name from Employees__c where Id = '#{params[:id]}'")
     erb :account
   end
 
