@@ -37,7 +37,7 @@ class MyApp < Sinatra::Base
 
   get '/' do
     logger.info "Visited home page"
-    @accounts= client.query("select Id, Name from Account")    
+    @accounts= client.query("select Account.Id, Account.Name, Name, Email from Contacts")    
     erb :index
   end
 
@@ -51,7 +51,14 @@ class MyApp < Sinatra::Base
   end
 
   post '/register' do
-    params[:username].reverse
+    @acc = Account.new(
+        :Name => params[:username]
+      )
+    if @acc.save
+      redirect '/'
+    else
+      redirect '/register'
+    end
   end
 
   get '/authenticate' do
