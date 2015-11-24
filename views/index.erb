@@ -6,7 +6,7 @@
 		    <td><%= account.username__c %></td>
 		    <td><%= account.email__c %></td>
 		    <td><%= account.teamnumber__c %></td>
-		    <td><%= account.Team__c.Name %></td>
+		    <td><%= account.Team__r.Name %></td>
 		    <td><a href = "/account/<%= account.Id %>" />Details</td>
 		  </tr>
 		<% end %>
