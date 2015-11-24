@@ -46,6 +46,10 @@ class MyApp < Sinatra::Base
     erb :account
   end
 
+  get '/register' do
+    erb :register
+  end
+
   post '/register' do
     params[:username].reverse
   end
