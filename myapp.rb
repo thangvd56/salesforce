@@ -51,8 +51,7 @@ class MyApp < Sinatra::Base
   end
 
   post '/register' do
-    Account acc = new Account(Name = params[:username])
-    insert acc
+    client.create('Account', Name: params[:username])
     redirect '/'
   end
 
