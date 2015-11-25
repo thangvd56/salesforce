@@ -61,11 +61,11 @@ class MyApp < Sinatra::Base
     puts params[:dateofb]
     result = client.create('Employees__c', Name: params[:fullname], username__c: params[:username], Address__c: params[:address], birthday__c: params[:dateofb], 
       Hiredate__c: params[:hiredate], Phone__c: params[:phone], email__c: params[:email], Position__c: params[:position], Team__c: params[:team])
-    # if result
-    #   redirect '/'
-    # else
-    #   redirect '/register'
-    # end
+    if result
+      redirect '/'
+    else
+      redirect '/register'
+    end
   end
 
   get '/addteam' do
@@ -73,7 +73,7 @@ class MyApp < Sinatra::Base
   end
 
   post '/addteam' do
-    result = client.create('Team__c', Name: params[:teamname], teamkey__c: params[:teamkey])
+    result = client.create('Team__c',  teamkey__c: params[:teamkey], Name: params[:teamname])
     if result
       redirect '/'
     else
