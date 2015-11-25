@@ -66,6 +66,19 @@ class MyApp < Sinatra::Base
     
   end
 
+  get '/addteam' do
+    erb :addteam
+  end
+
+  post '/addteam' do
+    result = client.create('Team__c', Name: params[:teamname], teamkey__c: params[:teamkey])
+    if result
+      redirect '/'
+    else
+      redirect '/addteam'
+    end
+  end
+
   get '/details/:id' do
     @employees = client.query("select Name, Position__c, Hiredate__c, birthday__c, Team__r.Name, Address__c, email__c, Phone__c from Employees__c where Id = '#{params[:id]}'")
     erb :details
