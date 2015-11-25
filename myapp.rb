@@ -47,11 +47,13 @@ class MyApp < Sinatra::Base
   end
 
   get '/register' do
+    @teams = client.query("select Name, teamkey__c from Team__c")
     erb :register
   end
 
   post '/register' do
-    client.create('Account', Name: params[:username])
+    client.create('Account', Name: params[:fullname], username__c: params[:username], Address__c: params[:address], birthday__c: params[:dateofb], 
+      Hiredate__c: params[:hiredate], Phone__c: params[:phone], email__c: params[:email], Position__c: params[:position])
     redirect '/'
   end
 
