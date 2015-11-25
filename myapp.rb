@@ -52,7 +52,7 @@ class MyApp < Sinatra::Base
   end
 
   post '/register' do
-    client.create('Account', Name: params[:fullname], username__c: params[:username], Address__c: params[:address], birthday__c: params[:dateofb], 
+    client.create('Employees__c', Name: params[:fullname], username__c: params[:username], Address__c: params[:address], birthday__c: params[:dateofb], 
       Hiredate__c: params[:hiredate], Phone__c: params[:phone], email__c: params[:email], Position__c: params[:position])
     redirect '/'
   end
