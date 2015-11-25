@@ -52,18 +52,18 @@ class MyApp < Sinatra::Base
   end
 
   post '/register' do
-    new_employee = Array.new
-    new_employee << {'Name' => params[:fullname], 'username__c' => params[:username], 'Address__c' => params[:address], 'birthday__c'=> params[:dateofb], 
-      'Hiredate__c' => params[:hiredate], 'Phone__c' => params[:phone], 'email__c'=> params[:email], 'Position__c' => params[:position], 'Team__c'=> params[:team]}
-    result = client.create('Employees__c', new_employee)
-    if result
-      redirect '/'
-    else
-      redirect '/register'
-    end
-    # client.create('Employees__c', Name: params[:fullname], username__c: params[:username], Address__c: params[:address], birthday__c: params[:dateofb], 
-    #   Hiredate__c: params[:hiredate], Phone__c: params[:phone], email__c: params[:email], Position__c: params[:position], Team__c: params[:team])
-    
+    # new_employee = Array.new
+    # new_employee << {'Name' => params[:fullname], 'username__c' => params[:username], 'Address__c' => params[:address], 'birthday__c'=> params[:dateofb], 
+    #   'Hiredate__c' => params[:hiredate], 'Phone__c' => params[:phone], 'email__c'=> params[:email], 'Position__c' => params[:position], 'Team__c'=> params[:team]}
+    # result = client.create('Employees__c', new_employee)
+    puts params[:team]
+    result = client.create('Employees__c', Name: params[:fullname], username__c: params[:username], Address__c: params[:address], birthday__c: params[:dateofb], 
+      Hiredate__c: params[:hiredate], Phone__c: params[:phone], email__c: params[:email], Position__c: params[:position], Team__c: params[:team])
+    # if result
+    #   redirect '/'
+    # else
+    #   redirect '/register'
+    # end
   end
 
   get '/addteam' do
