@@ -56,9 +56,6 @@ class MyApp < Sinatra::Base
     # new_employee << {'Name' => params[:fullname], 'username__c' => params[:username], 'Address__c' => params[:address], 'birthday__c'=> params[:dateofb], 
     #   'Hiredate__c' => params[:hiredate], 'Phone__c' => params[:phone], 'email__c'=> params[:email], 'Position__c' => params[:position], 'Team__c'=> params[:team]}
     # result = client.create('Employees__c', new_employee)
-    puts params[:team]
-    puts params[:fullname]
-    puts params[:dateofb]
     result = client.create('Employees__c', Name: params[:fullname], username__c: params[:username], Address__c: params[:address], birthday__c: params[:dateofb], 
       Hiredate__c: params[:hiredate], Phone__c: params[:phone], email__c: params[:email], Position__c: params[:position], Team__c: params[:team])
     if result
