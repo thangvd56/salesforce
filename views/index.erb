@@ -1,13 +1,13 @@
 	<h3> List employees APV </h3>
 	<table class="table table-bordered">
-		<tr><th>Account</th><th>Username</th><th>Email</th><th>No Member</th><th>Team</th><th>Action</th></tr>
+		<tr><th>Account</th><th>Username</th><th>Email</th><th>No Member</th><th>Position</th><th>Action</th></tr>
 		<% @accounts.each do |account| %>
 		  <tr>
 		    <td><%= account.Name %></td>
 		    <td><%= account.username__c %></td>
 		    <td><%= account.email__c %></td>
 		    <td><%= account.Employee_ID__c %></td>
-		    <td><%= account.Team__r.Name %></td>
+		    <td><%= account.Position__c %></td>
 		    <td><a href = "/details/<%= account.Id %>" />Details</td>
 		  </tr>
 		<% end %>
