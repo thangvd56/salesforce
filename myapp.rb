@@ -52,11 +52,14 @@ class MyApp < Sinatra::Base
   end
 
   post '/register' do
+    date_org = params[:dateofb].split(' ')
+    date_new = date_org[0].split('-')
+    date_todate = Date.new(date_new[0].to_i, date_new[1].to_i, date_new[2].to_i)
     # new_employee = Array.new
     # new_employee << {'Name' => params[:fullname], 'username__c' => params[:username], 'Address__c' => params[:address], 'birthday__c'=> params[:dateofb], 
     #   'Hiredate__c' => params[:hiredate], 'Phone__c' => params[:phone], 'email__c'=> params[:email], 'Position__c' => params[:position], 'Team__c'=> params[:team]}
     # result = client.create('Employees__c', new_employee)
-    result = client.create('Employees__c', Name: params[:fullname], username__c: params[:username], Address__c: params[:address], birthday__c: params[:dateofb], 
+    result = client.create('Employees__c', Name: params[:fullname], username__c: params[:username], Address__c: params[:address], birthday__c: date_todate, 
       Hiredate__c: params[:hiredate], Phone__c: params[:phone], email__c: params[:email], Position__c: params[:position])
     if result
       redirect '/'
