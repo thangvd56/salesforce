@@ -59,12 +59,15 @@ class MyApp < Sinatra::Base
     date_hire = params[:hiredate].split(' ')
     date_hire_new = date_hire[0].split('-')
     date_todate_hire = Date.new(date_hire_new[0].to_i, date_hire_new[1].to_i, date_hire_new[2].to_i)
+    teams_sql = client.query("select Id from Team_c where Name = '#{params[:team]}'")
+    teams = teams_sql.first
+    team = team.Id
     # new_employee = Array.new
     # new_employee << {'Name' => params[:fullname], 'username__c' => params[:username], 'Address__c' => params[:address], 'birthday__c'=> params[:dateofb], 
     #   'Hiredate__c' => params[:hiredate], 'Phone__c' => params[:phone], 'email__c'=> params[:email], 'Position__c' => params[:position], 'Team__c'=> params[:team]}
     # result = client.create('Employees__c', new_employee)
     result = client.create('Employees__c', Name: params[:fullname], username__c: params[:username], Address__c: params[:address], birthday__c: date_todate, 
-      Hiredate__c: date_todate_hire, Phone__c: params[:phone], email__c: params[:email], Position__c: params[:position])
+      Hiredate__c: date_todate_hire, Phone__c: params[:phone], email__c: params[:email], Position__c: params[:position], Team__c: team)
     if result
       redirect '/'
     else
@@ -86,7 +89,7 @@ class MyApp < Sinatra::Base
   end
 
   get '/details/:id' do
-    @employees = client.query("select Name, Position__c, Hiredate__c, birthday__c, Team__r.Name, Address__c, email__c, Phone__c from Employees__c where Id = '#{params[:id]}'")
+    @employees = client.query("select Name, Position__c, Hiredate__c, birthday__c, Address__c, email__c, Phone__c from Employees__c where Id = '#{params[:id]}'")
     erb :details
   end
 
