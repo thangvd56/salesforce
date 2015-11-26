@@ -47,7 +47,7 @@ class MyApp < Sinatra::Base
   end
 
   get '/register' do
-    @teams = client.query("select Name, teamkey__c from Team__c")
+    @teams = client.query("select Name from Team__c")
     erb :register
   end
 
@@ -57,7 +57,7 @@ class MyApp < Sinatra::Base
     #   'Hiredate__c' => params[:hiredate], 'Phone__c' => params[:phone], 'email__c'=> params[:email], 'Position__c' => params[:position], 'Team__c'=> params[:team]}
     # result = client.create('Employees__c', new_employee)
     result = client.create('Employees__c', Name: params[:fullname], username__c: params[:username], Address__c: params[:address], birthday__c: params[:dateofb], 
-      Hiredate__c: params[:hiredate], Phone__c: params[:phone], email__c: params[:email], Position__c: params[:position], Team__c: params[:team])
+      Hiredate__c: params[:hiredate], Phone__c: params[:phone], email__c: params[:email], Position__c: params[:position], Team__r: params[:team])
     if result
       redirect '/'
     else
@@ -70,7 +70,7 @@ class MyApp < Sinatra::Base
   end
 
   post '/addteam' do
-    result = client.create('Team__c',  teamkey__c: params[:teamkey], Name: params[:teamname])
+    result = client.create('Team__c', Name: params[:teamname])
     if result
       redirect '/'
     else
