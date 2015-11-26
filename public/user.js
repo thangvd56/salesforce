@@ -33,4 +33,5 @@ $(document).ready(function() {
     });
 
     $(".date-picker-2").datepicker();
+    $(".date-picker-3").datepicker();
 });
