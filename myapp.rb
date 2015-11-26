@@ -55,12 +55,16 @@ class MyApp < Sinatra::Base
     date_org = params[:dateofb].split(' ')
     date_new = date_org[0].split('-')
     date_todate = Date.new(date_new[0].to_i, date_new[1].to_i, date_new[2].to_i)
+
+    date_hire = params[:hiredate].split(' ')
+    date_hire_new = date_hire[0].split('-')
+    date_todate_hire = Date.new(date_hire_new[0].to_i, date_hire_new[1].to_i, date_hire_new[2].to_i)
     # new_employee = Array.new
     # new_employee << {'Name' => params[:fullname], 'username__c' => params[:username], 'Address__c' => params[:address], 'birthday__c'=> params[:dateofb], 
     #   'Hiredate__c' => params[:hiredate], 'Phone__c' => params[:phone], 'email__c'=> params[:email], 'Position__c' => params[:position], 'Team__c'=> params[:team]}
     # result = client.create('Employees__c', new_employee)
     result = client.create('Employees__c', Name: params[:fullname], username__c: params[:username], Address__c: params[:address], birthday__c: date_todate, 
-      Hiredate__c: params[:hiredate], Phone__c: params[:phone], email__c: params[:email], Position__c: params[:position])
+      Hiredate__c: date_todate_hire, Phone__c: params[:phone], email__c: params[:email], Position__c: params[:position])
     if result
       redirect '/'
     else
