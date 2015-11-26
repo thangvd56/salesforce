@@ -32,6 +32,7 @@ $(document).ready(function() {
         alert("This is a demo.\n :-)");
     });
 
+    
     $(".date-picker-2").datepicker();
     $(".date-picker-3").datepicker();
 });
