@@ -31,4 +31,12 @@ $(document).ready(function() {
         e.preventDefault();
         alert("This is a demo.\n :-)");
     });
+
+    $(".date-picker").datepicker();
+
+    $(".date-picker").on("change", function () {
+        var id = $(this).attr("id");
+        var val = $("label[for='" + id + "']").text();
+        $("#msg").text(val + " changed");
+    });
 });
